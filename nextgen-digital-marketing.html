@@ -1,0 +1,1541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="NextGen Digital Marketing – AI-powered marketing, creative design, social media management, and high-converting digital campaigns that grow your business.">
+<meta name="keywords" content="digital marketing, logo design, SEO, social media, AI video, Google Ads, Facebook Ads, branding">
+<title>NextGen Digital Marketing – Grow Smarter. Scale Faster.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+/* ============================================================
+   DESIGN TOKENS
+   Palette: Obsidian #0A0A0F | Deep Blue #0D1B3E | Royal Navy #0F2460
+             Ink #12122A | Gold #C9973A | Gold Light #E8B84B | White #FFFFFF | Mist #F0F2F7
+   Type: Syne (display) + Inter (body)
+   Signature: Animated gold scan-line on hero, NDM pixel-mark logo
+   ============================================================ */
+:root {
+  --obsidian: #0A0A0F;
+  --ink: #12122A;
+  --navy: #0D1B3E;
+  --royal: #0F2460;
+  --gold: #C9973A;
+  --gold-light: #E8B84B;
+  --gold-pale: rgba(201,151,58,0.12);
+  --white: #FFFFFF;
+  --mist: #F0F2F7;
+  --gray: #8892A4;
+  --border: rgba(255,255,255,0.08);
+  --transition: 0.35s cubic-bezier(0.4,0,0.2,1);
+  --radius: 12px;
+  --radius-lg: 20px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--obsidian);
+  color: var(--white);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--ink); }
+::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
+
+/* ===== TYPOGRAPHY ===== */
+h1,h2,h3,h4,h5 { font-family: 'Syne', sans-serif; font-weight: 700; line-height: 1.15; }
+.display { font-size: clamp(2.8rem, 6vw, 5.5rem); font-weight: 800; }
+.section-title { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+.eyebrow {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.gold { color: var(--gold); }
+.gradient-text {
+  background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 50%, #a07820 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ===== LAYOUT ===== */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+section { padding: 100px 0; }
+.section-header { text-align: center; margin-bottom: 64px; }
+.section-header p { color: var(--gray); max-width: 560px; margin: 16px auto 0; font-size: 1.05rem; }
+
+/* ===== NAV ===== */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  background: rgba(10,10,15,0.85);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  transition: var(--transition);
+}
+nav.scrolled { background: rgba(10,10,15,0.97); }
+.nav-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  height: 72px;
+}
+.logo-mark {
+  display: flex; align-items: center; gap: 12px; text-decoration: none;
+}
+.ndm-logo {
+  width: 44px; height: 44px; position: relative; flex-shrink: 0;
+}
+.ndm-logo svg { width: 100%; height: 100%; }
+.logo-text { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.1rem; line-height: 1.1; }
+.logo-text span { display: block; font-size: 0.62rem; font-weight: 400; letter-spacing: 0.12em; color: var(--gold); font-family: 'Inter', sans-serif; }
+.nav-links { display: flex; gap: 32px; list-style: none; }
+.nav-links a {
+  color: rgba(255,255,255,0.75); text-decoration: none;
+  font-size: 0.88rem; font-weight: 500; transition: color var(--transition);
+}
+.nav-links a:hover { color: var(--gold); }
+.nav-cta {
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+  color: var(--obsidian) !important;
+  padding: 10px 24px; border-radius: 8px;
+  font-weight: 600 !important; font-size: 0.85rem !important;
+}
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; }
+.hamburger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: var(--transition); }
+.mobile-menu {
+  display: none; position: fixed; top: 72px; left: 0; right: 0; bottom: 0;
+  background: var(--obsidian); z-index: 999; padding: 32px 24px;
+  flex-direction: column; gap: 8px; overflow-y: auto;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+  color: var(--white); text-decoration: none;
+  font-size: 1.1rem; font-weight: 500;
+  padding: 14px 0; border-bottom: 1px solid var(--border);
+}
+
+/* ===== BUTTONS ===== */
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 14px 32px; border-radius: 10px;
+  font-family: 'Inter', sans-serif; font-size: 0.95rem; font-weight: 600;
+  cursor: pointer; text-decoration: none; border: none; transition: var(--transition);
+}
+.btn-primary {
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+  color: var(--obsidian);
+  box-shadow: 0 4px 24px rgba(201,151,58,0.3);
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 36px rgba(201,151,58,0.45); }
+.btn-outline {
+  background: transparent;
+  border: 1.5px solid rgba(255,255,255,0.3);
+  color: var(--white);
+}
+.btn-outline:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
+
+/* ===== HERO ===== */
+#home {
+  min-height: 100vh; display: flex; align-items: center;
+  position: relative; overflow: hidden; padding-top: 72px;
+  background: var(--obsidian);
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 70% 40%, rgba(15,36,96,0.5) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 40% at 20% 80%, rgba(201,151,58,0.08) 0%, transparent 60%);
+}
+.hero-grid {
+  position: absolute; inset: 0; opacity: 0.04;
+  background-image: linear-gradient(var(--white) 1px, transparent 1px), linear-gradient(90deg, var(--white) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+.scan-line {
+  position: absolute; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent 0%, var(--gold) 20%, var(--gold-light) 50%, var(--gold) 80%, transparent 100%);
+  opacity: 0.6;
+  animation: scan 4s ease-in-out infinite;
+}
+@keyframes scan {
+  0% { top: 10%; opacity: 0; }
+  10% { opacity: 0.6; }
+  90% { opacity: 0.6; }
+  100% { top: 90%; opacity: 0; }
+}
+.hero-content { position: relative; z-index: 2; max-width: 760px; }
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--gold-pale); border: 1px solid rgba(201,151,58,0.3);
+  padding: 8px 16px; border-radius: 100px; margin-bottom: 28px;
+}
+.hero-badge-dot { width: 8px; height: 8px; background: var(--gold); border-radius: 50%; animation: pulse 2s ease infinite; }
+@keyframes pulse { 0%,100% { box-shadow: 0 0 0 0 rgba(201,151,58,0.6); } 50% { box-shadow: 0 0 0 8px rgba(201,151,58,0); } }
+.hero-badge span { font-size: 0.78rem; font-weight: 600; color: var(--gold); letter-spacing: 0.08em; }
+.hero-content h1 { margin: 0 0 24px; }
+.hero-content p { color: rgba(255,255,255,0.65); font-size: 1.1rem; max-width: 580px; margin-bottom: 40px; line-height: 1.7; }
+.hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+.hero-stats {
+  display: flex; gap: 40px; margin-top: 64px;
+  padding-top: 40px; border-top: 1px solid var(--border);
+}
+.hero-stat-num {
+  font-family: 'Syne', sans-serif; font-size: 2rem; font-weight: 800;
+  color: var(--gold);
+}
+.hero-stat-label { font-size: 0.8rem; color: var(--gray); margin-top: 2px; }
+.hero-visual {
+  position: absolute; right: -40px; top: 50%; transform: translateY(-50%);
+  width: 500px; opacity: 0.12; pointer-events: none;
+  font-family: 'Syne', sans-serif; font-size: 18rem; font-weight: 800;
+  color: var(--white); white-space: nowrap; z-index: 1;
+}
+
+/* ===== MARQUEE ===== */
+.marquee-section {
+  padding: 24px 0; background: var(--navy);
+  border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+  overflow: hidden;
+}
+.marquee-track {
+  display: flex; gap: 48px; animation: marquee 25s linear infinite; width: max-content;
+}
+.marquee-track:hover { animation-play-state: paused; }
+@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+.marquee-item {
+  display: flex; align-items: center; gap: 12px; white-space: nowrap;
+  font-size: 0.85rem; font-weight: 500; color: rgba(255,255,255,0.5);
+}
+.marquee-item i { color: var(--gold); font-size: 0.7rem; }
+
+/* ===== ABOUT ===== */
+#about { background: var(--ink); }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.about-image-wrap { position: relative; }
+.about-image-frame {
+  width: 100%; aspect-ratio: 4/5;
+  background: linear-gradient(135deg, var(--navy) 0%, var(--royal) 100%);
+  border-radius: var(--radius-lg); position: relative; overflow: hidden;
+}
+.about-image-inner {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  flex-direction: column; gap: 16px;
+}
+.about-big-ndm {
+  font-family: 'Syne', sans-serif; font-size: 8rem; font-weight: 800;
+  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  opacity: 0.15;
+}
+.about-badge-float {
+  position: absolute; bottom: -20px; right: -20px;
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  color: var(--obsidian); padding: 20px 28px; border-radius: var(--radius);
+  font-family: 'Syne', sans-serif;
+}
+.about-badge-float .num { font-size: 2.2rem; font-weight: 800; line-height: 1; }
+.about-badge-float .lbl { font-size: 0.75rem; font-weight: 600; }
+.about-content .eyebrow { margin-bottom: 16px; display: block; }
+.about-content h2 { margin-bottom: 24px; }
+.about-content > p { color: var(--gray); margin-bottom: 32px; line-height: 1.8; }
+.value-list { list-style: none; display: flex; flex-direction: column; gap: 16px; }
+.value-list li {
+  display: flex; align-items: flex-start; gap: 14px;
+  padding: 16px; background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border); border-radius: var(--radius);
+  transition: border-color var(--transition);
+}
+.value-list li:hover { border-color: rgba(201,151,58,0.4); }
+.value-icon {
+  width: 36px; height: 36px; flex-shrink: 0;
+  background: var(--gold-pale); border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--gold); font-size: 0.9rem;
+}
+.value-list li h4 { font-size: 0.9rem; margin-bottom: 2px; }
+.value-list li p { font-size: 0.82rem; color: var(--gray); }
+
+/* ===== SERVICES ===== */
+#services { background: var(--obsidian); }
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+.service-card {
+  background: rgba(255,255,255,0.025);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px;
+  transition: var(--transition);
+  cursor: default;
+  position: relative; overflow: hidden;
+}
+.service-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  transform: scaleX(0); transition: transform var(--transition); transform-origin: left;
+}
+.service-card:hover { border-color: rgba(201,151,58,0.35); transform: translateY(-4px); background: rgba(15,36,96,0.25); }
+.service-card:hover::before { transform: scaleX(1); }
+.service-icon {
+  width: 48px; height: 48px; background: var(--gold-pale);
+  border-radius: 12px; display: flex; align-items: center; justify-content: center;
+  color: var(--gold); font-size: 1.2rem; margin-bottom: 18px;
+}
+.service-card h3 { font-size: 1rem; margin-bottom: 8px; }
+.service-card p { font-size: 0.83rem; color: var(--gray); line-height: 1.6; }
+
+/* ===== PORTFOLIO ===== */
+#portfolio { background: var(--ink); }
+.portfolio-filter {
+  display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-bottom: 48px;
+}
+.filter-btn {
+  padding: 8px 20px; border-radius: 100px;
+  font-size: 0.83rem; font-weight: 500; cursor: pointer;
+  border: 1.5px solid var(--border); background: transparent;
+  color: var(--gray); transition: var(--transition);
+}
+.filter-btn.active, .filter-btn:hover {
+  border-color: var(--gold); color: var(--gold);
+  background: var(--gold-pale);
+}
+.portfolio-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px;
+}
+.portfolio-card {
+  border-radius: var(--radius-lg); overflow: hidden; position: relative;
+  background: var(--navy); aspect-ratio: 4/3;
+  border: 1px solid var(--border); cursor: pointer;
+  transition: var(--transition);
+}
+.portfolio-card:hover { transform: scale(1.02); border-color: rgba(201,151,58,0.4); }
+.portfolio-visual {
+  width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
+  font-size: 4rem; position: relative; overflow: hidden;
+}
+.portfolio-visual::before {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(13,27,62,0.9) 0%, rgba(15,36,96,0.6) 100%);
+}
+.portfolio-visual-icon { position: relative; z-index: 1; }
+.portfolio-overlay {
+  position: absolute; inset: 0; background: rgba(10,10,15,0.92);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  opacity: 0; transition: var(--transition); padding: 24px;
+}
+.portfolio-card:hover .portfolio-overlay { opacity: 1; }
+.portfolio-overlay h3 { font-size: 1.1rem; margin-bottom: 8px; text-align: center; }
+.portfolio-overlay p { font-size: 0.82rem; color: var(--gray); text-align: center; }
+.portfolio-tag {
+  display: inline-block; margin-top: 12px;
+  background: var(--gold-pale); border: 1px solid rgba(201,151,58,0.4);
+  color: var(--gold); padding: 4px 12px; border-radius: 100px; font-size: 0.75rem;
+}
+
+/* ===== PRICING ===== */
+#pricing { background: var(--obsidian); }
+.pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+.pricing-card {
+  background: rgba(255,255,255,0.025);
+  border: 1px solid var(--border); border-radius: var(--radius-lg);
+  padding: 40px 32px; transition: var(--transition); position: relative; overflow: hidden;
+}
+.pricing-card.featured {
+  background: linear-gradient(145deg, rgba(15,36,96,0.6) 0%, rgba(13,27,62,0.8) 100%);
+  border-color: var(--gold);
+}
+.pricing-card.featured::after {
+  content: 'Most Popular';
+  position: absolute; top: 20px; right: -30px;
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  color: var(--obsidian); font-size: 0.72rem; font-weight: 700;
+  padding: 6px 40px; transform: rotate(45deg);
+}
+.pricing-card:hover { transform: translateY(-6px); border-color: rgba(201,151,58,0.5); }
+.pricing-tier { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+.pricing-price {
+  font-family: 'Syne', sans-serif; font-size: 2.8rem; font-weight: 800; line-height: 1;
+  margin-bottom: 8px;
+}
+.pricing-price span { font-size: 1rem; font-weight: 400; color: var(--gray); }
+.pricing-desc { font-size: 0.85rem; color: var(--gray); margin-bottom: 28px; }
+.pricing-features { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 36px; }
+.pricing-features li { display: flex; align-items: center; gap: 10px; font-size: 0.88rem; }
+.pricing-features li i { color: var(--gold); font-size: 0.75rem; width: 16px; flex-shrink: 0; }
+
+/* ===== WHY US ===== */
+#why { background: var(--ink); }
+.why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; }
+.why-card {
+  text-align: center; padding: 36px 24px;
+  background: rgba(255,255,255,0.025); border: 1px solid var(--border);
+  border-radius: var(--radius); transition: var(--transition);
+}
+.why-card:hover { border-color: rgba(201,151,58,0.4); transform: translateY(-4px); }
+.why-icon {
+  width: 64px; height: 64px; margin: 0 auto 20px;
+  background: linear-gradient(135deg, var(--gold-pale), rgba(201,151,58,0.2));
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  color: var(--gold); font-size: 1.4rem; border: 1px solid rgba(201,151,58,0.3);
+}
+.why-card h3 { font-size: 1rem; margin-bottom: 8px; }
+.why-card p { font-size: 0.82rem; color: var(--gray); }
+
+/* ===== COUNTERS ===== */
+.counters-strip {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--royal) 100%);
+  padding: 60px 0; border-top: 1px solid rgba(201,151,58,0.2); border-bottom: 1px solid rgba(201,151,58,0.2);
+}
+.counters-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 32px; text-align: center; }
+.counter-num {
+  font-family: 'Syne', sans-serif; font-size: 3rem; font-weight: 800;
+  color: var(--gold); line-height: 1;
+}
+.counter-label { font-size: 0.85rem; color: rgba(255,255,255,0.6); margin-top: 6px; }
+
+/* ===== TESTIMONIALS ===== */
+#testimonials { background: var(--obsidian); }
+.testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+.testimonial-card {
+  background: rgba(255,255,255,0.025); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); padding: 32px;
+  transition: var(--transition);
+}
+.testimonial-card:hover { border-color: rgba(201,151,58,0.3); transform: translateY(-4px); }
+.t-stars { color: var(--gold); font-size: 0.9rem; margin-bottom: 16px; }
+.t-quote { font-size: 0.92rem; color: rgba(255,255,255,0.8); line-height: 1.7; margin-bottom: 24px; font-style: italic; }
+.t-author { display: flex; align-items: center; gap: 14px; }
+.t-avatar {
+  width: 48px; height: 48px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.1rem; color: var(--obsidian);
+  flex-shrink: 0;
+}
+.t-name { font-size: 0.92rem; font-weight: 600; }
+.t-role { font-size: 0.78rem; color: var(--gray); }
+
+/* ===== BLOG ===== */
+#blog { background: var(--ink); }
+.blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+.blog-card {
+  background: rgba(255,255,255,0.025); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); overflow: hidden; transition: var(--transition);
+}
+.blog-card:hover { border-color: rgba(201,151,58,0.3); transform: translateY(-4px); }
+.blog-thumb {
+  height: 180px; display: flex; align-items: center; justify-content: center;
+  font-size: 3.5rem; position: relative; overflow: hidden;
+}
+.blog-thumb-bg {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, var(--navy), var(--royal));
+}
+.blog-thumb-icon { position: relative; z-index: 1; }
+.blog-body { padding: 24px; }
+.blog-meta {
+  display: flex; gap: 12px; align-items: center; margin-bottom: 12px;
+}
+.blog-cat {
+  background: var(--gold-pale); color: var(--gold);
+  padding: 3px 10px; border-radius: 100px; font-size: 0.72rem; font-weight: 600;
+}
+.blog-date { font-size: 0.75rem; color: var(--gray); }
+.blog-card h3 { font-size: 1rem; margin-bottom: 8px; line-height: 1.4; }
+.blog-card p { font-size: 0.82rem; color: var(--gray); line-height: 1.6; }
+.blog-read {
+  display: inline-flex; align-items: center; gap: 6px;
+  margin-top: 16px; font-size: 0.82rem; font-weight: 600; color: var(--gold);
+  text-decoration: none; transition: gap var(--transition);
+}
+.blog-read:hover { gap: 10px; }
+
+/* ===== FAQ ===== */
+#faq { background: var(--obsidian); }
+.faq-list { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+.faq-item {
+  background: rgba(255,255,255,0.025); border: 1px solid var(--border);
+  border-radius: var(--radius); overflow: hidden; transition: border-color var(--transition);
+}
+.faq-item.open { border-color: rgba(201,151,58,0.35); }
+.faq-q {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 20px 24px; cursor: pointer; gap: 16px;
+}
+.faq-q span { font-family: 'Syne', sans-serif; font-size: 0.95rem; font-weight: 600; }
+.faq-q i { color: var(--gold); transition: transform var(--transition); flex-shrink: 0; }
+.faq-item.open .faq-q i { transform: rotate(45deg); }
+.faq-a {
+  max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s;
+  font-size: 0.88rem; color: var(--gray); line-height: 1.7;
+}
+.faq-item.open .faq-a { max-height: 300px; padding: 0 24px 20px; }
+
+/* ===== NEWSLETTER ===== */
+.newsletter-strip {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--royal) 100%);
+  padding: 80px 0;
+  border-top: 1px solid rgba(201,151,58,0.2);
+  border-bottom: 1px solid rgba(201,151,58,0.2);
+}
+.newsletter-inner { text-align: center; max-width: 560px; margin: 0 auto; }
+.newsletter-inner h2 { margin-bottom: 12px; }
+.newsletter-inner p { color: rgba(255,255,255,0.65); margin-bottom: 32px; }
+.newsletter-form { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+.newsletter-form input {
+  flex: 1; min-width: 260px;
+  background: rgba(255,255,255,0.07); border: 1.5px solid rgba(255,255,255,0.15);
+  color: var(--white); padding: 14px 20px; border-radius: 10px;
+  font-family: 'Inter', sans-serif; font-size: 0.92rem;
+  transition: border-color var(--transition);
+}
+.newsletter-form input:focus { outline: none; border-color: var(--gold); }
+.newsletter-form input::placeholder { color: var(--gray); }
+
+/* ===== CONTACT ===== */
+#contact { background: var(--ink); }
+.contact-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 60px; }
+.contact-info { display: flex; flex-direction: column; gap: 28px; }
+.contact-info h2 { margin-bottom: 4px; }
+.contact-info > p { color: var(--gray); }
+.contact-detail {
+  display: flex; align-items: flex-start; gap: 16px;
+  padding: 20px; background: rgba(255,255,255,0.025);
+  border: 1px solid var(--border); border-radius: var(--radius);
+}
+.c-icon {
+  width: 44px; height: 44px; flex-shrink: 0;
+  background: var(--gold-pale); border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--gold); font-size: 1rem;
+}
+.c-label { font-size: 0.75rem; color: var(--gray); margin-bottom: 2px; }
+.c-value { font-size: 0.92rem; font-weight: 500; }
+.social-row { display: flex; gap: 12px; flex-wrap: wrap; }
+.social-btn {
+  width: 44px; height: 44px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(255,255,255,0.05); border: 1px solid var(--border);
+  color: var(--white); text-decoration: none; font-size: 1rem;
+  transition: var(--transition);
+}
+.social-btn:hover { background: var(--gold); color: var(--obsidian); border-color: var(--gold); transform: translateY(-3px); }
+.contact-form { display: flex; flex-direction: column; gap: 16px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-group { display: flex; flex-direction: column; gap: 8px; }
+.form-group label { font-size: 0.8rem; font-weight: 600; color: rgba(255,255,255,0.7); }
+.form-group input, .form-group select, .form-group textarea {
+  background: rgba(255,255,255,0.04); border: 1.5px solid var(--border);
+  color: var(--white); padding: 13px 16px; border-radius: 10px;
+  font-family: 'Inter', sans-serif; font-size: 0.9rem;
+  transition: border-color var(--transition);
+}
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+  outline: none; border-color: var(--gold);
+}
+.form-group select option { background: var(--ink); }
+.form-group textarea { resize: vertical; min-height: 120px; }
+.map-placeholder {
+  margin-top: 24px; height: 200px; background: rgba(13,27,62,0.4);
+  border: 1px solid var(--border); border-radius: var(--radius);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 8px; color: var(--gray); font-size: 0.85rem;
+}
+.map-placeholder i { font-size: 2rem; color: var(--gold); }
+
+/* ===== FOOTER ===== */
+footer {
+  background: var(--obsidian);
+  border-top: 1px solid var(--border);
+  padding: 64px 0 32px;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 48px; margin-bottom: 48px;
+}
+.footer-brand p { color: var(--gray); font-size: 0.85rem; margin: 16px 0 24px; max-width: 280px; line-height: 1.7; }
+.footer-social { display: flex; gap: 10px; flex-wrap: wrap; }
+.footer-col h4 { font-size: 0.9rem; margin-bottom: 20px; color: var(--white); }
+.footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-links a { font-size: 0.83rem; color: var(--gray); text-decoration: none; transition: color var(--transition); }
+.footer-links a:hover { color: var(--gold); }
+.footer-bottom {
+  padding-top: 32px; border-top: 1px solid var(--border);
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+}
+.footer-bottom p { font-size: 0.8rem; color: var(--gray); }
+.footer-bottom a { color: var(--gold); text-decoration: none; }
+
+/* ===== FLOATING BUTTONS ===== */
+.floating-btns {
+  position: fixed; bottom: 28px; right: 24px; z-index: 900;
+  display: flex; flex-direction: column; gap: 12px; align-items: flex-end;
+}
+.whatsapp-float {
+  width: 56px; height: 56px; border-radius: 50%;
+  background: #25D366; color: white; font-size: 1.5rem;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.5);
+  cursor: pointer; text-decoration: none; transition: var(--transition);
+  animation: bob 3s ease-in-out infinite;
+}
+.whatsapp-float:hover { transform: scale(1.1); }
+@keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+.call-float {
+  display: flex; align-items: center; gap: 10px;
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  color: var(--obsidian); font-size: 0.82rem; font-weight: 700;
+  padding: 10px 20px; border-radius: 100px;
+  box-shadow: 0 4px 20px rgba(201,151,58,0.4);
+  cursor: pointer; text-decoration: none; transition: var(--transition);
+}
+.call-float:hover { transform: scale(1.05); }
+
+/* ===== REVEAL ANIMATIONS ===== */
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  section { padding: 72px 0; }
+  .about-grid { grid-template-columns: 1fr; gap: 48px; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .hero-visual { display: none; }
+  .hero-stats { gap: 24px; }
+  .form-row { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .nav-cta { display: none; }
+  .hero-btns { flex-direction: column; }
+  .hero-stats { flex-wrap: wrap; gap: 20px; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .counters-grid { grid-template-columns: 1fr 1fr; }
+  section { padding: 56px 0; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <div class="container nav-inner">
+    <a href="#home" class="logo-mark">
+      <div class="ndm-logo">
+        <svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" fill="none">
+          <defs>
+            <linearGradient id="lg1" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#E8B84B"/>
+              <stop offset="100%" stop-color="#0F2460"/>
+            </linearGradient>
+          </defs>
+          <!-- Pixel grid background -->
+          <rect width="44" height="44" rx="10" fill="url(#lg1)"/>
+          <!-- N -->
+          <rect x="6" y="9" width="3" height="16" fill="white" opacity="0.95"/>
+          <rect x="6" y="9" width="3" height="3" fill="white"/>
+          <rect x="9" y="12" width="3" height="4" fill="white" opacity="0.8"/>
+          <rect x="12" y="16" width="3" height="4" fill="white" opacity="0.8"/>
+          <rect x="15" y="9" width="3" height="16" fill="white" opacity="0.95"/>
+          <!-- D -->
+          <rect x="20" y="9" width="3" height="16" fill="white" opacity="0.95"/>
+          <rect x="23" y="9" width="4" height="3" fill="white" opacity="0.85"/>
+          <rect x="23" y="22" width="4" height="3" fill="white" opacity="0.85"/>
+          <rect x="27" y="12" width="3" height="10" fill="white" opacity="0.8"/>
+          <!-- M -->
+          <rect x="32" y="9" width="3" height="16" fill="white" opacity="0.95"/>
+          <rect x="35" y="12" width="2" height="3" fill="white" opacity="0.8"/>
+          <rect x="37" y="9" width="3" height="16" fill="white" opacity="0.95"/>
+          <!-- Pixel accents -->
+          <rect x="6" y="28" width="3" height="3" fill="#E8B84B" opacity="0.9"/>
+          <rect x="12" y="28" width="3" height="3" fill="#C9973A" opacity="0.7"/>
+          <rect x="22" y="28" width="3" height="3" fill="#E8B84B" opacity="0.9"/>
+          <rect x="36" y="28" width="3" height="3" fill="#C9973A" opacity="0.7"/>
+        </svg>
+      </div>
+      <div class="logo-text">NextGen<span>Digital Marketing</span></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#blog">Blog</a></li>
+      <li><a href="#contact" class="nav-cta">Contact Us</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#home" onclick="closeMenu()">Home</a>
+  <a href="#about" onclick="closeMenu()">About Us</a>
+  <a href="#services" onclick="closeMenu()">Services</a>
+  <a href="#portfolio" onclick="closeMenu()">Portfolio</a>
+  <a href="#pricing" onclick="closeMenu()">Pricing</a>
+  <a href="#testimonials" onclick="closeMenu()">Testimonials</a>
+  <a href="#blog" onclick="closeMenu()">Blog</a>
+  <a href="#faq" onclick="closeMenu()">FAQ</a>
+  <a href="#contact" onclick="closeMenu()">Contact</a>
+</div>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="scan-line"></div>
+  <div class="hero-visual">NDM</div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <div class="hero-badge-dot"></div>
+        <span>AI-Powered Marketing Agency</span>
+      </div>
+      <h1 class="display">Grow Your Business<br>with <span class="gradient-text">Smart Digital</span><br>Marketing</h1>
+      <p>We help brands grow with AI-powered marketing, creative design, social media management, and high-converting digital campaigns that actually deliver results.</p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn btn-primary"><i class="fas fa-rocket"></i> Get Free Consultation</a>
+        <a href="#services" class="btn btn-outline"><i class="fas fa-play-circle"></i> View Our Services</a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="hero-stat-num" data-count="500">0+</div>
+          <div class="hero-stat-label">Projects Delivered</div>
+        </div>
+        <div>
+          <div class="hero-stat-num" data-count="300">0+</div>
+          <div class="hero-stat-label">Happy Clients</div>
+        </div>
+        <div>
+          <div class="hero-stat-num" data-count="5">0</div>
+          <div class="hero-stat-label">Years Experience</div>
+        </div>
+        <div>
+          <div class="hero-stat-num" data-count="98">0%</div>
+          <div class="hero-stat-label">Satisfaction Rate</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-section">
+  <div class="marquee-track" id="marqueeTrack">
+    <div class="marquee-item"><i class="fas fa-circle"></i> Logo Design</div>
+    <div class="marquee-item"><i class="fas fa-circle"></i> SEO Optimization</div>
+    <div class="marquee-item"><i class="fas fa-circle"></i> AI Video Creation</div>
+    <div class="marquee-item"><i class="fas fa-circle"></i> Social Media Marketing</div>
+    <div class="marquee-item"><i class="fas fa-circle"></i> Google Ads</div>
+    <div class="marquee-item"><i class="fas fa-circle"></i> Facebook & Instagram Ads</div>
+    <div class="marquee-item"><i class="fas fa-circle"></i> Brand Identity</div>
+    <div class="marquee-item"><i class="fas fa-circle"></i> Website Development</div>
+    <div class="marquee-item"><i class="fas fa-circle"></i> Email Marketing</div>
+    <div class="marquee-item"><i class="fas fa-circle"></i> Lead Generation</div>
+    <div class="marquee-item"><i class="fas fa-circle"></i> Content Creation</div>
+    <div class="marquee-item"><i class="fas fa-circle"></i> WhatsApp Marketing</div>
+    <div class="marquee-item"><i class="fas fa-circle"></i> Logo Design</div>
+    <div class="marquee-item"><i class="fas fa-circle"></i> SEO Optimization</div>
+    <div class="marquee-item"><i class="fas fa-circle"></i> AI Video Creation</div>
+    <div class="marquee-item"><i class="fas fa-circle"></i> Social Media Marketing</div>
+    <div class="marquee-item"><i class="fas fa-circle"></i> Google Ads</div>
+    <div class="marquee-item"><i class="fas fa-circle"></i> Facebook & Instagram Ads</div>
+    <div class="marquee-item"><i class="fas fa-circle"></i> Brand Identity</div>
+    <div class="marquee-item"><i class="fas fa-circle"></i> Website Development</div>
+    <div class="marquee-item"><i class="fas fa-circle"></i> Email Marketing</div>
+    <div class="marquee-item"><i class="fas fa-circle"></i> Lead Generation</div>
+    <div class="marquee-item"><i class="fas fa-circle"></i> Content Creation</div>
+    <div class="marquee-item"><i class="fas fa-circle"></i> WhatsApp Marketing</div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-image-wrap reveal">
+        <div class="about-image-frame">
+          <div class="about-image-inner">
+            <div class="about-big-ndm">NDM</div>
+            <div style="text-align:center; position: relative; z-index: 1;">
+              <div style="font-family:'Syne',sans-serif; font-size:1.1rem; font-weight:700; color:rgba(255,255,255,0.8);">NextGen Digital</div>
+              <div style="font-size:0.8rem; color:var(--gold); letter-spacing:0.12em; margin-top:4px;">MARKETING AGENCY</div>
+            </div>
+            <div style="position:relative;z-index:1; display:flex; gap:16px; flex-wrap:wrap; justify-content:center; padding: 0 24px;">
+              <div style="background:rgba(201,151,58,0.15);border:1px solid rgba(201,151,58,0.3);padding:12px 20px;border-radius:10px;text-align:center">
+                <div style="font-family:'Syne',sans-serif;font-weight:800;color:var(--gold);font-size:1.4rem;">AI</div>
+                <div style="font-size:0.7rem;color:rgba(255,255,255,0.5)">Powered</div>
+              </div>
+              <div style="background:rgba(201,151,58,0.15);border:1px solid rgba(201,151,58,0.3);padding:12px 20px;border-radius:10px;text-align:center">
+                <div style="font-family:'Syne',sans-serif;font-weight:800;color:var(--gold);font-size:1.4rem;">24/7</div>
+                <div style="font-size:0.7rem;color:rgba(255,255,255,0.5)">Support</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="about-badge-float">
+          <div class="num">500+</div>
+          <div class="lbl">Projects Done</div>
+        </div>
+      </div>
+      <div class="about-content reveal">
+        <span class="eyebrow">Who We Are</span>
+        <h2 class="section-title">Your Growth is Our <span class="gradient-text">Mission</span></h2>
+        <p>NextGen Digital Marketing is a full-service digital agency built for the modern era. We blend creative strategy with AI-powered tools to deliver campaigns that don't just look good — they perform. From startups to enterprises, we've helped hundreds of brands build authority, attract customers, and scale revenue.</p>
+        <ul class="value-list">
+          <li>
+            <div class="value-icon"><i class="fas fa-brain"></i></div>
+            <div><h4>AI-First Approach</h4><p>We integrate AI tools into every campaign for sharper targeting and faster results.</p></div>
+          </li>
+          <li>
+            <div class="value-icon"><i class="fas fa-palette"></i></div>
+            <div><h4>Creative Excellence</h4><p>Award-worthy design and content that stops scrollers and converts visitors into buyers.</p></div>
+          </li>
+          <li>
+            <div class="value-icon"><i class="fas fa-chart-line"></i></div>
+            <div><h4>Data-Driven Strategy</h4><p>Every decision is backed by real analytics, not gut feelings or guesswork.</p></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COUNTERS -->
+<div class="counters-strip">
+  <div class="container">
+    <div class="counters-grid">
+      <div class="reveal">
+        <div class="counter-num" data-count="500">0</div>
+        <div class="counter-label">Projects Completed</div>
+      </div>
+      <div class="reveal">
+        <div class="counter-num" data-count="300">0</div>
+        <div class="counter-label">Satisfied Clients</div>
+      </div>
+      <div class="reveal">
+        <div class="counter-num" data-count="50">0</div>
+        <div class="counter-label">Industries Served</div>
+      </div>
+      <div class="reveal">
+        <div class="counter-num" data-count="5">0</div>
+        <div class="counter-label">Years of Excellence</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">What We Do</span>
+      <h2 class="section-title">Complete Digital Marketing <span class="gradient-text">Solutions</span></h2>
+      <p>From brand identity to paid ads, we cover every touchpoint of your digital presence under one roof.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal"><div class="service-icon"><i class="fas fa-pen-nib"></i></div><h3>Logo Design</h3><p>Distinctive marks built to withstand trends and represent your brand for decades.</p></div>
+      <div class="service-card reveal"><div class="service-icon"><i class="fas fa-layer-group"></i></div><h3>Brand Identity Design</h3><p>Full visual systems — color, type, guidelines — that make your brand instantly recognizable.</p></div>
+      <div class="service-card reveal"><div class="service-icon"><i class="fas fa-images"></i></div><h3>Social Media Post Design</h3><p>Eye-catching creatives engineered to stop scrollers and drive engagement.</p></div>
+      <div class="service-card reveal"><div class="service-icon"><i class="fas fa-film"></i></div><h3>AI Video Creation</h3><p>Cinematic AI-generated videos for ads, explainers, and brand storytelling.</p></div>
+      <div class="service-card reveal"><div class="service-icon"><i class="fas fa-shopping-bag"></i></div><h3>AI Product Advertisements</h3><p>Photorealistic AI product shots and ad creatives at a fraction of studio costs.</p></div>
+      <div class="service-card reveal"><div class="service-icon"><i class="fas fa-newspaper"></i></div><h3>Promotional Posters</h3><p>Bold, print-ready posters designed to grab attention at any size or format.</p></div>
+      <div class="service-card reveal"><div class="service-icon"><i class="fas fa-file-alt"></i></div><h3>Business Flyers</h3><p>High-conversion flyers for events, launches, offers, and promotions.</p></div>
+      <div class="service-card reveal"><div class="service-icon"><i class="fas fa-image"></i></div><h3>Banner Design</h3><p>Digital and print banners that communicate your message in seconds.</p></div>
+      <div class="service-card reveal"><div class="service-icon"><i class="fas fa-video"></i></div><h3>Reels & Shorts Editing</h3><p>Hook-first vertical video editing optimized for Instagram Reels and YouTube Shorts.</p></div>
+      <div class="service-card reveal"><div class="service-icon"><i class="fas fa-th-large"></i></div><h3>YouTube Thumbnail Design</h3><p>Click-bait-free, high-CTR thumbnails designed around viewer psychology.</p></div>
+      <div class="service-card reveal"><div class="service-icon"><i class="fas fa-chess"></i></div><h3>Digital Marketing Strategy</h3><p>Full-funnel strategy blueprints tailored to your goals, budget, and industry.</p></div>
+      <div class="service-card reveal"><div class="service-icon"><i class="fab fa-facebook"></i></div><h3>Facebook & Instagram Ads</h3><p>Targeted social campaigns with creative A/B testing and daily optimization.</p></div>
+      <div class="service-card reveal"><div class="service-icon"><i class="fab fa-google"></i></div><h3>Google Ads Management</h3><p>Search, display, and Performance Max campaigns managed for maximum ROAS.</p></div>
+      <div class="service-card reveal"><div class="service-icon"><i class="fas fa-search"></i></div><h3>SEO Optimization</h3><p>Technical SEO, content strategy, and link building that compounds over time.</p></div>
+      <div class="service-card reveal"><div class="service-icon"><i class="fas fa-laptop-code"></i></div><h3>Website Design & Development</h3><p>Fast, beautiful, conversion-optimized websites built on modern stacks.</p></div>
+      <div class="service-card reveal"><div class="service-icon"><i class="fas fa-mouse-pointer"></i></div><h3>Landing Page Design</h3><p>High-converting landing pages built around a single compelling call to action.</p></div>
+      <div class="service-card reveal"><div class="service-icon"><i class="fas fa-envelope"></i></div><h3>Email Marketing</h3><p>Automated sequences and campaigns that nurture leads and retain customers.</p></div>
+      <div class="service-card reveal"><div class="service-icon"><i class="fab fa-whatsapp"></i></div><h3>WhatsApp Marketing</h3><p>Broadcast campaigns and chatbots to engage customers where they already are.</p></div>
+      <div class="service-card reveal"><div class="service-icon"><i class="fas fa-pen"></i></div><h3>Content Creation</h3><p>Blogs, scripts, captions, and copy that educate, entertain, and convert.</p></div>
+      <div class="service-card reveal"><div class="service-icon"><i class="fas fa-store"></i></div><h3>E-commerce Marketing</h3><p>Catalog ads, retargeting, and product feeds that grow your online store.</p></div>
+      <div class="service-card reveal"><div class="service-icon"><i class="fas fa-funnel-dollar"></i></div><h3>Lead Generation</h3><p>Multi-channel funnels designed to fill your pipeline with qualified prospects.</p></div>
+      <div class="service-card reveal"><div class="service-icon"><i class="fas fa-briefcase"></i></div><h3>Business Consulting</h3><p>Strategic advisory to align your marketing with your broader business objectives.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Our Work</span>
+      <h2 class="section-title">Portfolio of <span class="gradient-text">Results</span></h2>
+      <p>A glimpse into campaigns, designs, and digital experiences we've crafted for our clients.</p>
+    </div>
+    <div class="portfolio-filter reveal">
+      <button class="filter-btn active" onclick="filterPortfolio('all', this)">All Work</button>
+      <button class="filter-btn" onclick="filterPortfolio('branding', this)">Branding</button>
+      <button class="filter-btn" onclick="filterPortfolio('social', this)">Social Media</button>
+      <button class="filter-btn" onclick="filterPortfolio('ads', this)">Ads</button>
+      <button class="filter-btn" onclick="filterPortfolio('web', this)">Web</button>
+      <button class="filter-btn" onclick="filterPortfolio('video', this)">Video</button>
+    </div>
+    <div class="portfolio-grid" id="portfolioGrid">
+      <div class="portfolio-card" data-cat="branding">
+        <div class="portfolio-visual" style="background:linear-gradient(135deg,#0D1B3E,#0F2460)">
+          <span class="portfolio-visual-icon">✦</span>
+        </div>
+        <div class="portfolio-overlay">
+          <h3>TechFlow Brand Identity</h3>
+          <p>Full visual identity system for a SaaS startup — logo, colors, and guidelines.</p>
+          <span class="portfolio-tag">Branding</span>
+        </div>
+      </div>
+      <div class="portfolio-card" data-cat="social">
+        <div class="portfolio-visual" style="background:linear-gradient(135deg,#1a0533,#3d0d6b)">
+          <span class="portfolio-visual-icon">◈</span>
+        </div>
+        <div class="portfolio-overlay">
+          <h3>Luna Beauty Social Pack</h3>
+          <p>30-post social media design system driving 3× engagement increase.</p>
+          <span class="portfolio-tag">Social Media</span>
+        </div>
+      </div>
+      <div class="portfolio-card" data-cat="ads">
+        <div class="portfolio-visual" style="background:linear-gradient(135deg,#0a2a0a,#1a5c1a)">
+          <span class="portfolio-visual-icon">⬡</span>
+        </div>
+        <div class="portfolio-overlay">
+          <h3>EcoMart Google Ads Campaign</h3>
+          <p>Search + Shopping campaign achieving 420% ROAS in 60 days.</p>
+          <span class="portfolio-tag">Google Ads</span>
+        </div>
+      </div>
+      <div class="portfolio-card" data-cat="web">
+        <div class="portfolio-visual" style="background:linear-gradient(135deg,#1a1a2e,#16213e)">
+          <span class="portfolio-visual-icon">⬜</span>
+        </div>
+        <div class="portfolio-overlay">
+          <h3>Luxe Hotels Website</h3>
+          <p>Fully custom hotel booking website with 68% higher conversion rate.</p>
+          <span class="portfolio-tag">Web Design</span>
+        </div>
+      </div>
+      <div class="portfolio-card" data-cat="video">
+        <div class="portfolio-visual" style="background:linear-gradient(135deg,#2a0a0a,#5c1a1a)">
+          <span class="portfolio-visual-icon">▶</span>
+        </div>
+        <div class="portfolio-overlay">
+          <h3>FitLife AI Brand Film</h3>
+          <p>60-second AI-generated brand video with 1.2M organic views on launch day.</p>
+          <span class="portfolio-tag">AI Video</span>
+        </div>
+      </div>
+      <div class="portfolio-card" data-cat="ads">
+        <div class="portfolio-visual" style="background:linear-gradient(135deg,#1a1000,#4a3200)">
+          <span class="portfolio-visual-icon">◆</span>
+        </div>
+        <div class="portfolio-overlay">
+          <h3>GoldNest Facebook Campaign</h3>
+          <p>Real estate Facebook Ads campaign generating 210 qualified leads in 30 days.</p>
+          <span class="portfolio-tag">Facebook Ads</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Transparent Pricing</span>
+      <h2 class="section-title">Choose Your <span class="gradient-text">Growth Plan</span></h2>
+      <p>Flexible packages built for every stage of business. No hidden fees, no locked-in contracts.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card reveal">
+        <div class="pricing-tier">Starter</div>
+        <div class="pricing-price">₹xxxx <span>/ project</span></div>
+        <div class="pricing-desc">Perfect for new brands establishing their digital presence.</div>
+        <ul class="pricing-features">
+          <li><i class="fas fa-check-circle"></i> Professional Logo Design</li>
+          <li><i class="fas fa-check-circle"></i> 5 Social Media Post Designs</li>
+          <li><i class="fas fa-check-circle"></i> Basic Promotional Poster</li>
+          <li><i class="fas fa-check-circle"></i> Business Card Design</li>
+          <li><i class="fas fa-check-circle"></i> 2 Revisions Included</li>
+          <li><i class="fas fa-check-circle"></i> 7-Day Delivery</li>
+        </ul>
+        <a href="#contact" class="btn btn-outline" style="width:100%;justify-content:center">Get Started</a>
+      </div>
+      <div class="pricing-card featured reveal">
+        <div class="pricing-tier">Professional</div>
+        <div class="pricing-price">₹xxxxx <span>/ month</span></div>
+        <div class="pricing-desc">Ideal for growing businesses ready to dominate their market.</div>
+        <ul class="pricing-features">
+          <li><i class="fas fa-check-circle"></i> Complete Brand Identity System</li>
+          <li><i class="fas fa-check-circle"></i> 20 Social Media Post Designs</li>
+          <li><i class="fas fa-check-circle"></i> AI Promotional Video (60s)</li>
+          <li><i class="fas fa-check-circle"></i> Website Landing Page</li>
+          <li><i class="fas fa-check-circle"></i> Facebook/Instagram Ad Creative</li>
+          <li><i class="fas fa-check-circle"></i> Email Marketing Setup</li>
+          <li><i class="fas fa-check-circle"></i> Unlimited Revisions</li>
+          <li><i class="fas fa-check-circle"></i> Dedicated Account Manager</li>
+        </ul>
+        <a href="#contact" class="btn btn-primary" style="width:100%;justify-content:center">Most Popular →</a>
+      </div>
+      <div class="pricing-card reveal">
+        <div class="pricing-tier">Business Premium</div>
+        <div class="pricing-price">₹xxxxx <span>/ month</span></div>
+        <div class="pricing-desc">Full-scale digital marketing engine for established businesses.</div>
+        <ul class="pricing-features">
+          <li><i class="fas fa-check-circle"></i> Complete Digital Marketing Suite</li>
+          <li><i class="fas fa-check-circle"></i> SEO (On-page + Off-page)</li>
+          <li><i class="fas fa-check-circle"></i> Google Ads Management</li>
+          <li><i class="fas fa-check-circle"></i> Facebook & Instagram Ads</li>
+          <li><i class="fas fa-check-circle"></i> Full Website Design & Dev</li>
+          <li><i class="fas fa-check-circle"></i> AI Video Ads (3 per month)</li>
+          <li><i class="fas fa-check-circle"></i> Monthly Performance Report</li>
+          <li><i class="fas fa-check-circle"></i> Priority 24/7 Support</li>
+        </ul>
+        <a href="#contact" class="btn btn-outline" style="width:100%;justify-content:center">Contact Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="why">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Why NextGen</span>
+      <h2 class="section-title">Built Different. <span class="gradient-text">Results Driven.</span></h2>
+      <p>We don't just run campaigns — we partner with your growth and stay invested in your success.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <div class="why-icon"><i class="fas fa-palette"></i></div>
+        <h3>Creative Designs</h3>
+        <p>Designs that communicate, convert, and leave a lasting impression.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon"><i class="fas fa-robot"></i></div>
+        <h3>AI-Powered Solutions</h3>
+        <p>We harness the latest AI tools to give your brand a competitive edge.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon"><i class="fas fa-bolt"></i></div>
+        <h3>Fast Delivery</h3>
+        <p>Quick turnaround without sacrificing quality or attention to detail.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon"><i class="fas fa-tag"></i></div>
+        <h3>Affordable Pricing</h3>
+        <p>Premium-quality work at prices that work for businesses of every size.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon"><i class="fas fa-headset"></i></div>
+        <h3>24/7 Support</h3>
+        <p>Our team is always available whenever you need answers or assistance.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon"><i class="fas fa-users"></i></div>
+        <h3>Experienced Team</h3>
+        <p>Specialists in design, strategy, tech, and content working for your brand.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials" style="background:var(--obsidian)">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Client Voices</span>
+      <h2 class="section-title">What Our Clients <span class="gradient-text">Say</span></h2>
+      <p>Real results, real feedback from businesses that trusted us with their growth.</p>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card reveal">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-quote">"NextGen completely transformed our online presence. Within 3 months of working with them, our leads tripled and brand recognition in our city skyrocketed. Best investment we've made."</p>
+        <div class="t-author">
+          <div class="t-avatar">RK</div>
+          <div><div class="t-name">Rajesh Kumar</div><div class="t-role">CEO, TechFlow Solutions</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-quote">"The AI product videos they created for our e-commerce store were absolutely stunning. Our product page conversion rate went from 2% to 7.4% after the refresh. Incredible team."</p>
+        <div class="t-author">
+          <div class="t-avatar">AP</div>
+          <div><div class="t-name">Ananya Patel</div><div class="t-role">Founder, LuxeEssentials</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-quote">"Our Google Ads were bleeding money before NextGen took over. They restructured everything and now we're getting 5× more clicks at 40% lower cost. Truly a game-changer."</p>
+        <div class="t-author">
+          <div class="t-avatar">MS</div>
+          <div><div class="t-name">Mohammed Shaikh</div><div class="t-role">Director, GoldNest Realty</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-quote">"The branding package was beyond what I expected. They captured our brand essence perfectly. Every piece of collateral now looks cohesive and premium. Highly recommend."</p>
+        <div class="t-author">
+          <div class="t-avatar">PJ</div>
+          <div><div class="t-name">Priya Joshi</div><div class="t-role">Owner, Bloom Wellness</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-quote">"Quick turnaround, responsive team, and results that actually move the needle. Our Instagram went from 2K to 28K followers in 4 months with their content strategy. Phenomenal."</p>
+        <div class="t-author">
+          <div class="t-avatar">VR</div>
+          <div><div class="t-name">Vikram Rao</div><div class="t-role">Co-founder, FitLife India</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-quote">"They built our landing page and connected it to a Facebook campaign that generated 140 leads in the first week. The ROI was immediate and the team was a pleasure to work with."</p>
+        <div class="t-author">
+          <div class="t-avatar">SN</div>
+          <div><div class="t-name">Sunita Nair</div><div class="t-role">Head of Marketing, EduNext</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section id="blog" style="background:var(--ink)">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Insights & Ideas</span>
+      <h2 class="section-title">From the <span class="gradient-text">Blog</span></h2>
+      <p>Practical advice, industry trends, and marketing strategies to help your brand grow.</p>
+    </div>
+    <div class="blog-grid">
+      <div class="blog-card reveal">
+        <div class="blog-thumb">
+          <div class="blog-thumb-bg"></div>
+          <span class="blog-thumb-icon">🤖</span>
+        </div>
+        <div class="blog-body">
+          <div class="blog-meta"><span class="blog-cat">AI Marketing</span><span class="blog-date">Jun 18, 2026</span></div>
+          <h3>How AI Is Rewriting the Rules of Digital Advertising in 2026</h3>
+          <p>From generative ad creatives to predictive audience targeting, AI has fundamentally changed how brands acquire customers.</p>
+          <a href="#" class="blog-read">Read More <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="blog-card reveal">
+        <div class="blog-thumb">
+          <div class="blog-thumb-bg" style="background:linear-gradient(135deg,#0a2a1a,#1a5c3a)"></div>
+          <span class="blog-thumb-icon">📈</span>
+        </div>
+        <div class="blog-body">
+          <div class="blog-meta"><span class="blog-cat">SEO</span><span class="blog-date">Jun 5, 2026</span></div>
+          <h3>The 2026 SEO Playbook: What Actually Works After Google's Core Updates</h3>
+          <p>Core updates keep changing the landscape. Here's the strategy that's still delivering top-3 rankings for our clients.</p>
+          <a href="#" class="blog-read">Read More <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="blog-card reveal">
+        <div class="blog-thumb">
+          <div class="blog-thumb-bg" style="background:linear-gradient(135deg,#2a1a0a,#5c3a1a)"></div>
+          <span class="blog-thumb-icon">📱</span>
+        </div>
+        <div class="blog-body">
+          <div class="blog-meta"><span class="blog-cat">Social Media</span><span class="blog-date">May 28, 2026</span></div>
+          <h3>Instagram Reels vs YouTube Shorts: Which Drives More Business in 2026?</h3>
+          <p>We analyzed 200+ short-form video campaigns across both platforms. The winner surprised us — and it might surprise you too.</p>
+          <a href="#" class="blog-read">Read More <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Common Questions</span>
+      <h2 class="section-title">Frequently <span class="gradient-text">Asked</span></h2>
+      <p>Everything you need to know before we start working together.</p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>How long does it take to see results from digital marketing?</span>
+          <i class="fas fa-plus"></i>
+        </div>
+        <div class="faq-a">Paid campaigns like Google and Facebook Ads can show results within 7–14 days. SEO typically takes 3–6 months to compound, but the long-term ROI is unmatched. We provide weekly progress reports so you're never in the dark.</div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>Do I need to sign a long-term contract?</span>
+          <i class="fas fa-plus"></i>
+        </div>
+        <div class="faq-a">No. We offer month-to-month arrangements with no lock-in contracts. Our results keep clients — not paperwork. Most of our clients have been with us for 12+ months because they see the value.</div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>What industries do you specialize in?</span>
+          <i class="fas fa-plus"></i>
+        </div>
+        <div class="faq-a">We've served 50+ industries including e-commerce, real estate, healthcare, education, hospitality, fashion, finance, and SaaS. Our strategies are always custom-built for your specific sector and audience.</div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>How much do I need to spend on ad budgets?</span>
+          <i class="fas fa-plus"></i>
+        </div>
+        <div class="faq-a">Ad budget is separate from our management fee. We can work with budgets starting from ₹10,000/month. We'll recommend an optimal budget based on your goals, market size, and competitive landscape.</div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>How do you measure and report campaign performance?</span>
+          <i class="fas fa-plus"></i>
+        </div>
+        <div class="faq-a">Every client gets a dedicated live dashboard with real-time metrics. We also send weekly summaries and monthly deep-dive reports. You'll always know exactly where your money is going and what it's returning.</div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>Can you work with businesses outside India?</span>
+          <i class="fas fa-plus"></i>
+        </div>
+        <div class="faq-a">Absolutely. We work with clients across India, UAE, UK, USA, and Southeast Asia. Our team is distributed and operates across time zones, making collaboration seamless wherever you're based.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<div class="newsletter-strip">
+  <div class="container">
+    <div class="newsletter-inner reveal">
+      <span class="eyebrow" style="margin-bottom:12px;display:block">Stay Ahead</span>
+      <h2 class="section-title">Marketing Insights to <span class="gradient-text">Your Inbox</span></h2>
+      <p>Join 5,000+ entrepreneurs and marketers getting weekly tips on growth, design, and AI.</p>
+      <div class="newsletter-form">
+        <input type="email" placeholder="Enter your email address" id="newsletterEmail">
+        <button class="btn btn-primary" onclick="subscribeNewsletter()">
+          <i class="fas fa-paper-plane"></i> Subscribe Free
+        </button>
+      </div>
+      <p style="font-size:0.75rem;color:rgba(255,255,255,0.35);margin-top:12px;">No spam. Unsubscribe anytime.</p>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Let's Talk</span>
+      <h2 class="section-title">Start Your <span class="gradient-text">Growth Journey</span></h2>
+      <p>Book a free strategy call and let's map out exactly how we'll grow your business together.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <h2>Get In Touch</h2>
+        <p>We respond within 2 business hours. For urgent queries, reach us on WhatsApp.</p>
+        <div class="contact-detail">
+          <div class="c-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div><div class="c-label">Office Address</div><div class="c-value">NextGen Digital Hub, 4th Floor, pupukkottai, Tamil Nadu – 62201, India</div></div>
+        </div>
+        <div class="contact-detail">
+          <div class="c-icon"><i class="fas fa-phone"></i></div>
+          <div><div class="c-label">Call / WhatsApp</div><div class="c-value">+91 9363609057</div></div>
+        </div>
+        <div class="contact-detail">
+          <div class="c-icon"><i class="fas fa-envelope"></i></div>
+          <div><div class="c-label">Email Us</div><div class="c-value">nextgendigital.marketing001@gmil.com</div></div>
+        </div>
+        <div class="contact-detail">
+          <div class="c-icon"><i class="fas fa-clock"></i></div
+          <div><div class="c-label">Working Hours</div><div class="c-value">Mon – Sat: 9:00 AM – 10:00 PM IST</div></div>
+        </div>
+        <div class="social-row">
+          <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="social-btn"><i class="fab fa-youtube"></i></a>
+          <a href="#" class="social-btn"><i class="fab fa-whatsapp"></i></a>
+        </div>
+        <div class="map-placeholder">
+          <i class="fas fa-map-marked-alt"></i>
+          <strong>NextGen Digital Hub, Tamil Nadu</strong>
+          <span>Click to open in Google Maps</span>
+        </div>
+      </div>
+      <div class="reveal">
+        <form class="contact-form" onsubmit="submitForm(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Full Name *</label>
+              <input type="text" placeholder="Your full name" required>
+            </div>
+            <div class="form-group">
+              <label>Email Address *</label>
+              <input type="email" placeholder="your@email.com" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Phone Number</label>
+              <input type="tel" placeholder="+91 98765 43210">
+            </div>
+            <div class="form-group">
+              <label>WhatsApp Number</label>
+              <input type="tel" placeholder="+91 98765 43210">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Service Required *</label>
+            <select required>
+              <option value="">Select a service...</option>
+              <option>Logo Design</option>
+              <option>Brand Identity Design</option>
+              <option>Social Media Post Design</option>
+              <option>AI Video Creation</option>
+              <option>AI Product Advertisements</option>
+              <option>Digital Marketing Strategy</option>
+              <option>Facebook & Instagram Ads</option>
+              <option>Google Ads Management</option>
+              <option>SEO Optimization</option>
+              <option>Website Design & Development</option>
+              <option>Landing Page Design</option>
+              <option>Email Marketing</option>
+              <option>WhatsApp Marketing</option>
+              <option>Lead Generation</option>
+              <option>Business Consulting</option>
+              <option>Full Digital Marketing Package</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Message *</label>
+            <textarea placeholder="Tell us about your business, goals, and what you need help with..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="align-self:flex-start">
+            <i class="fas fa-paper-plane"></i> Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#home" class="logo-mark" style="text-decoration:none">
+          <div class="ndm-logo">
+            <svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" fill="none">
+              <defs><linearGradient id="lg2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#E8B84B"/><stop offset="100%" stop-color="#0F2460"/></linearGradient></defs>
+              <rect width="44" height="44" rx="10" fill="url(#lg2)"/>
+              <rect x="6" y="9" width="3" height="16" fill="white" opacity="0.95"/>
+              <rect x="9" y="12" width="3" height="4" fill="white" opacity="0.8"/>
+              <rect x="12" y="16" width="3" height="4" fill="white" opacity="0.8"/>
+              <rect x="15" y="9" width="3" height="16" fill="white" opacity="0.95"/>
+              <rect x="20" y="9" width="3" height="16" fill="white" opacity="0.95"/>
+              <rect x="23" y="9" width="4" height="3" fill="white" opacity="0.85"/>
+              <rect x="23" y="22" width="4" height="3" fill="white" opacity="0.85"/>
+              <rect x="27" y="12" width="3" height="10" fill="white" opacity="0.8"/>
+              <rect x="32" y="9" width="3" height="16" fill="white" opacity="0.95"/>
+              <rect x="35" y="12" width="2" height="3" fill="white" opacity="0.8"/>
+              <rect x="37" y="9" width="3" height="16" fill="white" opacity="0.95"/>
+              <rect x="6" y="28" width="3" height="3" fill="#E8B84B" opacity="0.9"/>
+              <rect x="22" y="28" width="3" height="3" fill="#E8B84B" opacity="0.9"/>
+              <rect x="36" y="28" width="3" height="3" fill="#C9973A" opacity="0.7"/>
+            </svg>
+          </div>
+          <div class="logo-text">NextGen<span>Digital Marketing</span></div>
+        </a>
+        <p>We're a full-service digital marketing agency helping brands grow through AI-powered strategies, creative design, and data-driven campaigns.</p>
+        <div class="footer-social">
+          <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="social-btn"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#blog">Blog</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul class="footer-links">
+          <li><a href="#services">Logo Design</a></li>
+          <li><a href="#services">Brand Identity</a></li>
+          <li><a href="#services">AI Video Creation</a></li>
+          <li><a href="#services">SEO</a></li>
+          <li><a href="#services">Google Ads</a></li>
+          <li><a href="#services">Facebook Ads</a></li>
+          <li><a href="#services">Website Design</a></li>
+          <li><a href="#services">Lead Generation</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul class="footer-links">
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms & Conditions</a></li>
+          <li><a href="#">Cookie Policy</a></li>
+          <li><a href="#">Refund Policy</a></li>
+        </ul>
+        <h4 style="margin-top:24px">Contact</h4>
+        <ul class="footer-links">
+          <li><a href="tel:+919876543210">+91 98765 43210</a></li>
+          <li><a href="mailto:hello@nextgendigital.in">hello@nextgendigital.in</a></li>
+          <li style="color:var(--gray);font-size:0.83rem;">Bangalore, India</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 <a href="#home">NextGen Digital Marketing</a>. All rights reserved.</p>
+      <p style="font-size:0.75rem">Crafted with <span style="color:var(--gold)">♥</span> for ambitious brands.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING BUTTONS -->
+<div class="floating-btns">
+  <a href="tel:+919876543210" class="call-float"><i class="fas fa-phone"></i> Call Now</a>
+  <a href="https://wa.me/919876543210" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+</div>
+
+<script>
+// NAV SCROLL
+window.addEventListener('scroll', () => {
+  document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// MOBILE MENU
+function toggleMenu() {
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+function closeMenu() {
+  document.getElementById('mobileMenu').classList.remove('open');
+}
+
+// REVEAL ON SCROLL
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), i * 80);
+      revealObserver.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+// ANIMATED COUNTERS
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const el = entry.target;
+      const target = parseInt(el.dataset.count);
+      const suffix = el.textContent.includes('%') ? '%' : el.textContent.includes('+') ? '+' : '';
+      const duration = 1800;
+      const step = target / (duration / 16);
+      let current = 0;
+      const timer = setInterval(() => {
+        current = Math.min(current + step, target);
+        el.textContent = Math.floor(current) + suffix;
+        if (current >= target) clearInterval(timer);
+      }, 16);
+      counterObserver.unobserve(el);
+    }
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('[data-count]').forEach(el => counterObserver.observe(el));
+
+// PORTFOLIO FILTER
+function filterPortfolio(cat, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.portfolio-card').forEach(card => {
+    const match = cat === 'all' || card.dataset.cat === cat;
+    card.style.opacity = match ? '1' : '0.2';
+    card.style.transform = match ? '' : 'scale(0.95)';
+    card.style.pointerEvents = match ? '' : 'none';
+  });
+}
+
+// FAQ
+function toggleFaq(el) {
+  const item = el.parentElement;
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+// NEWSLETTER
+function subscribeNewsletter() {
+  const email = document.getElementById('newsletterEmail');
+  if (email.value && email.value.includes('@')) {
+    alert('🎉 You\'re subscribed! Check your inbox for a welcome email.');
+    email.value = '';
+  } else {
+    email.focus();
+  }
+}
+
+// CONTACT FORM
+function submitForm(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('button[type=submit]');
+  btn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
+  btn.style.background = 'linear-gradient(135deg,#22c55e,#16a34a)';
+  btn.style.color = 'white';
+  setTimeout(() => {
+    btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+    btn.style.background = '';
+    btn.style.color = '';
+    e.target.reset();
+  }, 3000);
+}
+
+// ACTIVE NAV LINK ON SCROLL
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 100) current = s.id;
+  });
+  navLinks.forEach(a => {
+    a.style.color = a.getAttribute('href') === '#' + current ? 'var(--gold)' : '';
+  });
+});
+</script>
+</body>
+</html>
